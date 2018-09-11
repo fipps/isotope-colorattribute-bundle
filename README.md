@@ -1,2 +1,3 @@
 # Isotope Colorattribute Bundle
-Dies ist **nur** ein Colorattribute für Contao 4 Bundles
+
+Dies Bundle fügt ein Farbfeld in die Options-Tabelle der Attribute hinzu.
