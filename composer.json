@@ -1,13 +1,14 @@
 {
   "name": "fipps/isotope-colorattribute-bundle",
-  "description": "Contao 4 Color Attribute Bundle",
+  "description": "Isotope Color Attribute Bundle",
   "keywords": [
-    "Contao",
+    "Contao 4",
     "Isotope",
-    "Color Attribute"
+    "Color Attribute",
+    "Bundle"
   ],
   "type": "contao-bundle",
-  "homepage": "https://gitlab.fipps.de/contao/contao4/colorattribute-bundle",
+  "homepage": "https://gitlab.fipps.de/contao/contao4/isotope-colorattribute-bundle",
   "license": "LGPL-3.0-or-later",
   "authors": [
     {
@@ -17,7 +18,7 @@
     }
   ],
   "support": {
-    "issues": "https://gitlab.fipps.de/contao/contao4/colorattribute-bundle/issues"
+    "issues": "https://gitlab.fipps.de/contao/contao4/isotope-colorattribute-bundle/issues"
   },
   "require": {
     "php": "^5.6|^7.0",
