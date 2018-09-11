@@ -52,6 +52,6 @@ class Plugin implements BundlePluginInterface
      */
     public function getPackageDependencies()
     {
-        return ['doctrine/doctrine-bundle'];
+        return [];
     }
 }
