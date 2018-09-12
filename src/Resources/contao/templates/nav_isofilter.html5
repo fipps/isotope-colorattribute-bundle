@@ -1,0 +1,28 @@
+<ul class="<?= $this->level ?>">
+    <?php foreach ($this->items as $item): ?>
+        <?php if (is_array($item['color'])) {
+            $item['class'] .= ' showAsColor';
+            $numberOfColors   = count($item['color']);
+            $count            = 0;
+            $gradientTemplate = array();
+            $gradientTemplate = '#%s %u%%, #%s %u%%';
+            $gradient = array();
+            foreach ($item['color'] as $color) {
+                $pos1       = round(100 / $numberOfColors) * $count++;
+                $pos2       = min([round(100 / $numberOfColors) * $count, 100]);
+                $gradient[] = sprintf($gradientTemplate, $color, $pos1, $color, $pos2);
+            }
+            $item['style']  .= sprintf(' style="background-image: linear-gradient(to bottom, %s)"', implode(', ', $gradient));
+        } ?>
+
+		<li<?= ($item['class'])?' class="'.$item['class'].'"':''?>>
+			<a href="<?= $item['href'] ?: './' ?>"
+		        title="<?= $item['pageTitle'] ?: $item['title'] ?>"
+                <?= ($item['class'])?' class="'.$item['class'].'"':''?>
+		        itemprop="url"
+                <?= ($item['style'])?:'' ?>>
+				<span itemprop="name"><?= $item['link'] ?></span>
+			</a>
+		</li>
+    <?php endforeach; ?>
+</ul>

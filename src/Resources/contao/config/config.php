@@ -55,6 +55,8 @@
  * Use function array_insert() to modify an existing CTE array.
  */
 
+$GLOBALS['FE_MOD']['isotope']['iso_cumulativefilter'] = 'Fipps\ColorattributeBundle\Module\CumulativeFilter';
+
 /**
  * -------------------------------------------------------------------------
  * CONTENT ELEMENTS
@@ -145,8 +147,8 @@
  * Use function array_insert() to modify an existing hooks array.
  */
 
-$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener','onGenerateFilters');
-$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener','onApplyAdvancedFilters');
+$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onGenerateFilters');
+$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onApplyAdvancedFilters');
 
 
 
