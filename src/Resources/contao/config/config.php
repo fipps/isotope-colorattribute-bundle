@@ -147,10 +147,7 @@ $GLOBALS['FE_MOD']['isotope']['iso_cumulativefilter'] = 'Fipps\ColorattributeBun
  * Use function array_insert() to modify an existing hooks array.
  */
 
-$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onGenerateFilters');
-$GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onApplyAdvancedFilters');
-
-
+$GLOBALS['TL_HOOKS']['parseWidget'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onParseWidget');
 
 /**
  * -------------------------------------------------------------------------
@@ -167,3 +164,9 @@ $GLOBALS['ISO_HOOKS']['generateFilters'][] = array('Fipps\ColorattributeBundle\L
  *
  * Use function array_insert() to modify an existing page types array.
  */
+
+
+/**
+ * Styles And Javascrips
+ */
+$GLOBALS['TL_CSS'][] = 'bundles/fippscolorattribute/css/colorControl.css';

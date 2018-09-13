@@ -9,6 +9,8 @@
 
 namespace Fipps\ColorattributeBundle\ContaoManager;
 
+use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
+use ContaoBootstrap\Form\ContaoBootstrapFormBundle;
 use Fipps\ColorattributeBundle\FippsColorattributeBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
@@ -26,7 +28,15 @@ class Plugin implements BundlePluginInterface
      */
     public function getBundles(ParserInterface $parser)
     {
-        return [BundleConfig::create(FippsColorattributeBundle::class)->setLoadAfter([ContaoCoreBundle::class, 'isotope'])];
+        return [
+            BundleConfig::create(FippsColorattributeBundle::class)->setLoadAfter(
+                    [
+                        ContaoCoreBundle::class,
+                        'isotope',
+
+                    ]
+                ),
+        ];
     }
 
     /**

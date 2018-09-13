@@ -10,20 +10,36 @@
 namespace Fipps\ColorattributeBundle\Listener;
 
 
-class HooksListener
+use Isotope\Model\AttributeOption;
+
+class HooksListener extends \System
 {
-    public function onGenerateFilters(array $arrFilters)
+
+    /**
+     * @param string  $strBuffer
+     * @param \Widget $widget
+     * @return string
+     */
+    public function onParseWidget(string $strBuffer, \Widget $widget)
     {
-        $arrInput = \Input::post('filter');
+        $newTemplate = 'form_colorRadio';
+        $style       = new \Fipps\ColorattributeBundle\Service\generateBackgroundColorStyle();
 
-        return $arrFilters;
-    }
+        if ($widget instanceof \Contao\FormRadioButton && isset($widget->showColor) && $widget->showColor == 1 && $widget->template != $newTemplate) {
+            $cloneWidget           = clone ($widget);
+            $cloneWidget->template = $newTemplate;
+            $options               = $cloneWidget->options;
+            foreach ($options as $key => $option) {
+                $option['style'] = $style->getStyleFromOption($option['model'], $widget->defaultColor, $widget->gradientDirection);
+                $options[$key]   = $option;
+            }
+            $cloneWidget->options = $options;
+            $strBuffer            = $cloneWidget->parse();
 
-    public function onApplyAdvancedFilters(array $arrFilters)
-    {
-        $arrInput = \Input::post('filter');
+            return $strBuffer;
+        }
 
-        return $arrFilters;
+        return $strBuffer;
     }
 
 

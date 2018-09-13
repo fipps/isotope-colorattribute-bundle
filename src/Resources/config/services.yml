@@ -20,4 +20,4 @@ services:
 
   Fipps\ColorattributeBundle\:
     resource: '../../*'
-    exclude: '../../{Resources,DependencyInjection,ContaoManager}/*'
+    exclude: '../../{Resources,Entity,Repository,DependencyInjection,ContaoManager}/*'
