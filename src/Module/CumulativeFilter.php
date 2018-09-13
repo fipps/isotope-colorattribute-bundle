@@ -28,24 +28,18 @@ class CumulativeFilter extends \Isotope\Module\CumulativeFilter
      */
     protected function generateOptionItem($attribute, $label, $value, $matchCount, $isActive)
     {
-        $return = parent::generateOptionItem($attribute, $label, $value, $matchCount, $isActive);
+        $item  = parent::generateOptionItem($attribute, $label, $value, $matchCount, $isActive);
+        $style = new \Fipps\ColorattributeBundle\Service\generateBackgroundColorStyle();
 
         // Add color attribute
         if (($objAttribute = $GLOBALS['TL_DCA']['tl_iso_product']['attributes'][$attribute]) !== null) {
             if ($objAttribute->showColor == 1) {
-                $options = AttributeOption::findById($value);
-                $arrColorValues = array();
-                try {
-                    foreach (deserialize($options->color) as $color) {
-                        $arrColorValues[] = $color['color'];
-                    };
-                } catch (Exception $e) {
-                    $arrColorValues = [$objAttribute->defaultColor];
-                }
-                $return['color'] = $arrColorValues;
+                $option = AttributeOption::findById($value);
+
+                $item['style'] = $style->getStyleFromOption($option, $objAttribute->defaultColor, $objAttribute->gradientDirection);
             }
         }
 
-        return $return;
+        return $item;
     }
 }

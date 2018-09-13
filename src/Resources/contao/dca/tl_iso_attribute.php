@@ -12,11 +12,11 @@ $DCA = &$GLOBALS['TL_DCA']['tl_iso_attribute'];
 // Palettes
 $DCA['palettes']['__selector__'][]         = 'showColor';
 $DCA['subpalettes']['optionsSource_table'] .= ',showColor';
-$DCA['subpalettes']['showColor']           = 'defaultColor';
+$DCA['subpalettes']['showColor']           = 'defaultColor,gradientDirection';
 
 // New fields
 $newFields = array(
-    'showColor'    => array(
+    'showColor'         => array(
         'label'     => &$GLOBALS['TL_LANG']['tl_iso_attribute']['showColor'],
         'exclude'   => true,
         'inputType' => 'checkbox',
@@ -26,7 +26,7 @@ $newFields = array(
         ),
         'sql'       => "char(1) NOT NULL default ''",
     ),
-    'defaultColor' => array(
+    'defaultColor'      => array(
         'label'     => &$GLOBALS['TL_LANG']['tl_iso_attribute']['defaultColor'],
         'exclude'   => true,
         'inputType' => 'text',
@@ -39,6 +39,28 @@ $newFields = array(
             'tl_class'       => 'w50 wizard',
         ),
         'sql'       => "varchar(64) NOT NULL default ''",
+    ),
+    'gradientDirection' => array(
+        'label'     => &$GLOBALS['TL_LANG']['tl_iso_attribute']['gradientDirection'],
+        'exclude'   => true,
+        'inputType' => 'select',
+        'default' => 'to bottom',
+        'options'   => array(
+            'to bottom' => 'to_bottom',
+            'to top' => 'to top',
+            'to left' => 'to left',
+            'to right' => 'to right',
+            '45deg' => '45°',
+            '135deg' => '135°',
+            '225deg' => '225°',
+            '315deg' => '315°',
+        ),
+        'eval'      => array(
+            'mandatory' => true,
+            'includeBlankOption' => true,
+            'tl_class'  => 'w50 wizard',
+        ),
+        'sql'       => "varchar(64) NOT NULL default 'to bottom'",
     ),
 );
 

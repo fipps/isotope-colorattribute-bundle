@@ -16,3 +16,7 @@ $GLOBALS['TL_LANG']['tl_iso_attribute']['defaultColor'] = array(
     'Standardfarbe',
     'Bitt geben Sie ein Standardfarbe an, diese wird verwendt, falls keine Farbe hinterlegt wurde.',
 );
+$GLOBALS['TL_LANG']['tl_iso_attribute']['gradientDirection'] = array(
+    'Verlaufsrichtung',
+    ''
+);

@@ -1,0 +1,41 @@
+/*
+ *  Copyright Information
+ *  @copyright: 2018 agentur fipps e.K.
+ *  @author   : Arne Borchert
+ *  @license  : LGPL 3.0+
+ */
+
+.color-control .colorRadio {
+    display: none;
+}
+.color-control .colorButton {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.color-control .colorButton i {
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    border: 1px #000000 solid;
+    transition: ease .3s;
+    box-sizing: content-box;
+}
+
+.color-control .colorButton i:hover,
+.color-control input:checked ~ .colorButton i {
+    padding: 5px;
+}
