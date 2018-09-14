@@ -15,36 +15,34 @@
             <?php endif; ?>
 		</label>
     <?php endif; ?>
-	<div class="custom-control color-control">
-        <?php if ($this->hasErrors()): ?>
-			<p class="error"><?= $this->getErrorAsString() ?></p>
-        <?php endif; ?>
+	<div>
+        <?php if ($this->hasErrors()): ?><p class="error"><?= $this->getErrorAsString() ?></p><?php endif; ?>
 
         <?php foreach ($this->getOptions() as $option): ?>
-            <?php if ($option['type'] == 'group_start'): ?>
-				<fieldset>
-				<legend><?= $option['label'] ?></legend>
-            <?php endif; ?>
+            <?php if ($option['type'] == 'group_start'): ?><fieldset><legend><?= $option['label'] ?></legend> <?php endif; ?>
 
             <?php if ($option['type'] == 'option'): ?>
-				<label id="lbl_<?= $option['id'] ?>"
-				       for="opt_<?= $option['id'] ?>"
-				       title="<?= $option['label'] ?>">
+				<div class="custom-control color-control">
 					<input type="radio"
 					       name="<?= $option['name'] ?>"
 					       id="opt_<?= $option['id'] ?>"
-					       class="colorRadio"
+					       class="invisible color-radio"
 					       value="<?= $option['value'] ?>"
                         <?= $option['checked'] ?>
                         <?= $option['attributes'] ?>>
-					<span class="colorButton"><i style="<?= $option['style']; ?>>"></i></span>
-					<span class="invisible"><?= $option['label'] ?></span>
-				</label>
+
+					<label id="lbl_<?= $option['id'] ?>"
+					       for="opt_<?= $option['id'] ?>"
+					       title="<?= $option['label'] ?>"
+					       class="custom-control-label">
+						<span class="color-button"><i style="<?= $option['style']; ?>>"></i></span>
+						<span class="invisible"><?= $option['label'] ?></span>
+					</label>
+				</div>
             <?php endif; ?>
 
-            <?php if ($option['type'] == 'group_end'): ?>
-				</fieldset>
-            <?php endif; ?>
+            <?php if ($option['type'] == 'group_end'): ?></fieldset> <?php endif; ?>
+
         <?php endforeach; ?>
 	</div>
 </div>
