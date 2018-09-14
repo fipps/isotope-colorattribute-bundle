@@ -1,32 +1,31 @@
 <?php $this->extend('form_row'); ?>
 
 <?php $this->block('field'); ?>
-<div id="ctrl_<?= $this->id ?>"
+<fieldset id="ctrl_<?= $this->id ?>"
      class="radio_container<?php if ($this->class) {
          echo ' '.$this->class;
      } ?>">
 
     <?php if ($this->label): ?>
-		<label>
+		<legend>
             <?php if ($this->mandatory): ?>
 				<span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
             <?php else: ?>
                 <?= $this->label ?>
             <?php endif; ?>
-		</label>
+		</legend>
     <?php endif; ?>
-	<div>
         <?php if ($this->hasErrors()): ?><p class="error"><?= $this->getErrorAsString() ?></p><?php endif; ?>
 
         <?php foreach ($this->getOptions() as $option): ?>
             <?php if ($option['type'] == 'group_start'): ?><fieldset><legend><?= $option['label'] ?></legend> <?php endif; ?>
 
             <?php if ($option['type'] == 'option'): ?>
-				<div class="custom-control color-control">
+				<span class="color-control">
 					<input type="radio"
 					       name="<?= $option['name'] ?>"
 					       id="opt_<?= $option['id'] ?>"
-					       class="invisible color-radio"
+					       class="radio"
 					       value="<?= $option['value'] ?>"
                         <?= $option['checked'] ?>
                         <?= $option['attributes'] ?>>
@@ -34,16 +33,15 @@
 					<label id="lbl_<?= $option['id'] ?>"
 					       for="opt_<?= $option['id'] ?>"
 					       title="<?= $option['label'] ?>"
-					       class="custom-control-label">
+					       class="color-label">
 						<span class="color-button"><i style="<?= $option['style']; ?>>"></i></span>
 						<span class="invisible"><?= $option['label'] ?></span>
 					</label>
-				</div>
+				</span>
             <?php endif; ?>
 
             <?php if ($option['type'] == 'group_end'): ?></fieldset> <?php endif; ?>
 
         <?php endforeach; ?>
-	</div>
-</div>
+</fieldset>
 <?php $this->endblock(); ?>
