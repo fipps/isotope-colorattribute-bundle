@@ -11,7 +11,7 @@
 $DCA = &$GLOBALS['TL_DCA']['tl_iso_attribute_option'];
 
 // Palettes
-$DCA['palettes']['option'] = str_replace(',isDefault', ',isDefault,color;', $DCA['palettes']['option']);
+$DCA['palettes']['option'] = str_replace(',isDefault', ',isDefault,color,', $DCA['palettes']['option']);
 
 // Change fields
 $DCA['fields']['label']['eval']['tl_class'] = 'w50';
