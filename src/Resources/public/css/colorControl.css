@@ -30,15 +30,15 @@
 .color-control .color-button {
     display: inline-block;
     position: relative;
-    margin: 14px;
+    margin: 16px;
     cursor: pointer;
 }
 
 .color-control .color-button i {
     display: block;
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     padding: 0;
     top: 50%;
     left: 50%;
@@ -54,5 +54,6 @@
 
 .color-control .color-button i:hover,
 .color-control .radio:checked ~ label .color-button i {
-    padding: 5px;
+    width: 32px;
+    height: 32px;
 }

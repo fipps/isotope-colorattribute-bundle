@@ -11,6 +11,7 @@ namespace Fipps\ColorattributeBundle\Listener;
 
 
 use Isotope\Model\AttributeOption;
+use Richardhj\Isotope\SimpleStockManagement\Model\Stock;
 
 class HooksListener extends \System
 {
@@ -42,5 +43,16 @@ class HooksListener extends \System
         return $strBuffer;
     }
 
+    /**
+     * @param \Isotope\Template               $template
+     * @param \Isotope\Model\Product\Standard $product
+     */
+    public function onGenerateProduct(\Isotope\Template &$template, \Isotope\Model\Product\Standard &$product)
+    {
+        $stock = Stock::getStockForProduct($product->id);
+        $template->stock = $stock;
+
+        return;
+    }
 
 }
