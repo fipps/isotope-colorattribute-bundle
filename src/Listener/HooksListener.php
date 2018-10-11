@@ -10,8 +10,7 @@
 namespace Fipps\ColorattributeBundle\Listener;
 
 
-use Isotope\Model\AttributeOption;
-use Richardhj\Isotope\SimpleStockManagement\Model\Stock;
+use Fipps\ColorattributeBundle\Service\GenerateBackgroundColorStyle;
 
 class HooksListener extends \System
 {
@@ -24,7 +23,7 @@ class HooksListener extends \System
     public function onParseWidget(string $strBuffer, \Widget $widget)
     {
         $newTemplate = 'form_colorRadio';
-        $style       = new \Fipps\ColorattributeBundle\Service\generateBackgroundColorStyle();
+        $style       = new GenerateBackgroundColorStyle();
 
         if ($widget instanceof \Contao\FormRadioButton && isset($widget->showColor) && $widget->showColor == 1 && $widget->template != $newTemplate) {
             $cloneWidget           = clone ($widget);
@@ -41,18 +40,6 @@ class HooksListener extends \System
         }
 
         return $strBuffer;
-    }
-
-    /**
-     * @param \Isotope\Template               $template
-     * @param \Isotope\Model\Product\Standard $product
-     */
-    public function onGenerateProduct(\Isotope\Template &$template, \Isotope\Model\Product\Standard &$product)
-    {
-        $stock = Stock::getStockForProduct($product->id);
-        $template->stock = $stock;
-
-        return;
     }
 
 }

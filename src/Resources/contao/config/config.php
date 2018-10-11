@@ -147,9 +147,7 @@ $GLOBALS['FE_MOD']['isotope']['iso_cumulativefilter'] = 'Fipps\ColorattributeBun
  * Use function array_insert() to modify an existing hooks array.
  */
 
-$GLOBALS['TL_HOOKS']['parseWidget'][]      = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onParseWidget');
-$GLOBALS['ISO_HOOKS']['generateProduct'][] = array('Fipps\ColorattributeBundle\Listener\HooksListener', 'onGenerateProduct');
-
+$GLOBALS['TL_HOOKS']['parseWidget'][]      = array(Fipps\ColorattributeBundle\Listener\HooksListener::class, 'onParseWidget');
 
 /**
  * -------------------------------------------------------------------------

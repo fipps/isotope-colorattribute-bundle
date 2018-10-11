@@ -12,7 +12,7 @@ namespace Fipps\ColorattributeBundle\Service;
 
 use Isotope\Model\AttributeOption;
 
-class generateBackgroundColorStyle
+class GenerateBackgroundColorStyle
 {
 
     /**
