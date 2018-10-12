@@ -30,12 +30,11 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(FippsColorattributeBundle::class)->setLoadAfter(
-                    [
-                        ContaoCoreBundle::class,
-                        'isotope',
-
-                    ]
-                ),
+                [
+                    ContaoCoreBundle::class,
+                    'isotope',
+                ]
+            ),
         ];
     }
 
@@ -44,7 +43,9 @@ class Plugin implements BundlePluginInterface
      */
     public function registerContainerConfiguration(LoaderInterface $loader, array $config)
     {
-        $loader->load('@FippsColorattributeBundle/Resources/config/config.yml');
+        $file = '@FippsColorattributeBundle/Resources/config/config.yml';
+
+        $loader->load($file);
     }
 
     /**
@@ -62,6 +63,6 @@ class Plugin implements BundlePluginInterface
      */
     public function getPackageDependencies()
     {
-        return [];
+        return ['isotope/isotope-core'];
     }
 }

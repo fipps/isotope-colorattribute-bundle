@@ -29,7 +29,7 @@ class CumulativeFilter extends \Isotope\Module\CumulativeFilter
     protected function generateOptionItem($attribute, $label, $value, $matchCount, $isActive)
     {
         $item  = parent::generateOptionItem($attribute, $label, $value, $matchCount, $isActive);
-        $style = new \Fipps\ColorattributeBundle\Service\generateBackgroundColorStyle();
+        $style = new \Fipps\ColorattributeBundle\Service\GenerateBackgroundColorStyle();
 
         // Add color attribute
         if (($objAttribute = $GLOBALS['TL_DCA']['tl_iso_product']['attributes'][$attribute]) !== null) {
