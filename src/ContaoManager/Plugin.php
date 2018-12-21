@@ -29,8 +29,8 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(FippsColorattributeBundle::class)->setLoadAfter(
-                [
+            BundleConfig::create(FippsColorattributeBundle::class)
+                ->setLoadAfter(                [
                     ContaoCoreBundle::class,
                     'isotope',
                 ]

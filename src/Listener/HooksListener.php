@@ -12,8 +12,9 @@ namespace Fipps\ColorattributeBundle\Listener;
 
 use Fipps\ColorattributeBundle\Service\GenerateBackgroundColorStyle;
 
-class HooksListener extends \System
+class HooksListener
 {
+
 
     /**
      * @param string  $strBuffer
@@ -40,6 +41,19 @@ class HooksListener extends \System
         }
 
         return $strBuffer;
+    }
+
+    /**
+     * Corrects invalid URL to mootools/colorpicker and redirects
+     */
+    public function onInitializeSystem()
+    {
+        $request = \Environment::get('request');
+
+        if (strpos($request, 'assets/mootools/colorpicker//') !== false) {
+            $request = str_replace('assets/mootools/colorpicker//', 'assets/colorpicker/', $request);
+            \Controller::redirect(\Environment::get('base').$request, 301);
+        }
     }
 
 }
