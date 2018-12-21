@@ -2,6 +2,9 @@ v1.2.0
 remove: require fritzmg/contao-short-urls
 fix: colorpicker
 
+v1.1.8
+change: composer.json
+
 v1.1.7
 fix: Namespace
 
