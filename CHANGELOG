@@ -1,3 +1,6 @@
+v1.2.1
+fix: register service
+
 v1.2.0
 remove: require fritzmg/contao-short-urls
 fix: colorpicker
