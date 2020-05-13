@@ -10,6 +10,8 @@
 namespace Fipps\ColorattributeBundle\Listener;
 
 
+use Contao\FormRadioButton;
+use Contao\Widget;
 use Fipps\ColorattributeBundle\Service\GenerateBackgroundColorStyle;
 
 class HooksListener
@@ -18,15 +20,15 @@ class HooksListener
 
     /**
      * @param string  $strBuffer
-     * @param \Widget $widget
+     * @param Widget $widget
      * @return string
      */
-    public function onParseWidget(string $strBuffer, \Widget $widget)
+    public function onParseWidget(string $strBuffer, Widget $widget)
     {
         $newTemplate = 'form_colorRadio';
         $style       = new GenerateBackgroundColorStyle();
 
-        if ($widget instanceof \Contao\FormRadioButton && isset($widget->showColor) && $widget->showColor == 1 && $widget->template != $newTemplate) {
+        if ($widget instanceof FormRadioButton && isset($widget->showColor) && $widget->showColor == 1 && $widget->template != $newTemplate) {
             $cloneWidget           = clone ($widget);
             $cloneWidget->template = $newTemplate;
             $options               = $cloneWidget->options;
